@@ -36,3 +36,9 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "haml-rails", ">= 0.4"
+gem "html2haml", ">= 1.0.1", :group => :development
+gem "devise", ">= 2.2.3"
+gem "cancan", ">= 1.6.9"
+gem "rolify", ">= 3.2.0"
