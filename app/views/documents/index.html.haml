@@ -1,0 +1,25 @@
+%h1 Listing documents
+
+%table
+  %tr
+    %th User
+    %th Project name
+    %th Document name
+    %th Access link
+    %th
+    %th
+    %th
+
+  - @documents.each do |document|
+    %tr
+      %td= document.user_id
+      %td= document.project_name
+      %td= document.document_name
+      %td= document.access_link
+      %td= link_to 'Show', document
+      %td= link_to 'Edit', edit_document_path(document)
+      %td= link_to 'Destroy', document, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Document', new_document_path

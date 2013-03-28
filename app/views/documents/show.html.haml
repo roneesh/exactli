@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @document.user_id
+%p
+  %b Project name:
+  = @document.project_name
+%p
+  %b Document name:
+  = @document.document_name
+%p
+  %b Access link:
+  = @document.access_link
+
+= link_to 'Edit', edit_document_path(@document)
+\|
+= link_to 'Back', documents_path

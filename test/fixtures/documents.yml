@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  project_name: 
+  document_name: 
+  access_link: MyString
+
+two:
+  user_id: 1
+  project_name: 
+  document_name: 
+  access_link: MyString
