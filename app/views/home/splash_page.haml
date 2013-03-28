@@ -6,8 +6,33 @@
     .text-container
       %p.call Simple, user friendly, drawing review tool. Create accurate drawings with collaborative project team reviews.
       .splash-btn
-        %a(href="#signup") Sign Up!
+        %a(href="/users/sign_up") Sign Up!
     .image-container
       = image_tag "exact_browser.png"
 
+  .splash-features.clearfix
+    %h1.lheading Features
+    %p.subd (Here's what you get)
+    .feature-box
+      %h3 Collaborate
+      = image_tag "Collaborative.png"
+      %p.subd All team members give feedback on project drawings
+    .feature-box
+      %h3 Version Control
+      = image_tag "Version.png"
+      %p.subd View current and older versions of proj. drawings
+    .feature-box
+      %h3 Paper Trail
+      = image_tag "Trail.png"
+      %p.subd Export comments with comments for QA/QC records
 
+  .how-it-works.clearfix
+    %h1.lheading How it Works
+    %p.subd (actually pretty simple)
+    = image_tag "how.png"
+
+  .splash-sign-up-form
+    .text-container
+      %h1.lhead Why Wait?
+    .splash-btn
+      %a(href="/users/sign_up") Sign Up!
