@@ -1,5 +1,15 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+= render 'layouts/in_app_header'
+.index-container
+  %h3 
+    Your documents,
+    =@user.name.split.first
+  %ul.document-list
+    - @documents.each do |document|
+      %li.document-li
+        %p= document.document_name
+        = image_tag "Folder.png", class: "folder-pic"
+        = image_tag "Settings.png", class: "settings-pic"
+  %hr.index-hr
+  = link_to "New Document", new_document_path
+  |
+  = link_to "Archive or Delete Documents"
