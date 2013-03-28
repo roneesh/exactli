@@ -3,13 +3,24 @@
   %h3 
     Your documents,
     =@user.name.split.first
+  %p
+    display by (project, date)
+  %p
+    sort date by (newest, oldest)
   %ul.document-list
     - @documents.each do |document|
       %li.document-li
-        %p= document.document_name
+        %p.document-information
+          Project:
+          = document.project_name
+        %p.document-information
+          Document:
+          = document.document_name
         = image_tag "Folder.png", class: "folder-pic"
-        = image_tag "Settings.png", class: "settings-pic"
+        = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
   = link_to "New Document", new_document_path
   |
   = link_to "Archive or Delete Documents"
+  |
+  = link_to "Archive or Delete DocumentVersions"

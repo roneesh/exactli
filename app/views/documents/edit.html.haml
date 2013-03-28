@@ -1,7 +1,10 @@
-%h1 Editing document
+.form-container.clearfix
+  .form-fields 
+    %h1 Editing Document
+    = render 'form'
+    %br
+    = link_to 'Show', @document
+    %br
+    = link_to 'Back', documents_path
 
-= render 'form'
 
-= link_to 'Show', @document
-\|
-= link_to 'Back', documents_path

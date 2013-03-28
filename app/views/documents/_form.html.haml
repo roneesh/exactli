@@ -6,17 +6,16 @@
         - @document.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
-  .field
+  %p
+    = f.hidden_field :user_id, :value => current_user.id
+  %p
     = f.label :project_name
     = f.text_field :project_name
-  .field
+  %p
     = f.label :document_name
     = f.text_field :document_name
-  .field
+  %p
     = f.label :access_link
     = f.text_field :access_link
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn crud-btn"
