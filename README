@@ -1,3 +1,19 @@
+TO DO:
+
+Front end
+* Style all the page deletes
+
+Back end
+* User Authorization needs to be added (might leave this for future dev)
+* Uploading Files
+  - Upload file
+  - Make Thumbnail
+  - If .pdf make it an image
+* Add annotations (both db models and js files)
+
+
+
+
 Exactli
 ========================
 
