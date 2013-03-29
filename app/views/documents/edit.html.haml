@@ -3,8 +3,6 @@
     %h1 Editing Document
     = render 'form'
     %br
-    = link_to 'Show', @document
-    %br
-    = link_to 'Back', documents_path
+    = link_to 'Back', user_path(current_user.id)
 
 

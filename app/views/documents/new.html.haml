@@ -3,4 +3,4 @@
     %h1 New Document
     = render 'form'
     %br
-    = link_to 'Back', documents_path
+    = link_to 'Back', user_path(current_user.id)
