@@ -1,8 +1,9 @@
 = render 'layouts/in_app_header'
 .index-container
   %h3 
-    Your documents,
+    Your Document Dashboard,
     =@user.name.split.first
+
   %p
     display by (project, date)
   %p
@@ -16,7 +17,7 @@
         %p.document-information
           Document:
           = document.document_name
-        = image_tag "Folder.png", class: "folder-pic"
+        = link_to (image_tag "Folder.png", class: "folder-pic"), document_path(document.id)
         = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_path(document.id)
   %hr.index-hr
   = link_to "New Document", new_document_path

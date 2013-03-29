@@ -1,18 +1,46 @@
-%p#notice= notice
+= render 'layouts/in_app_header'
 
-%p
-  %b User:
-  = @document.user_id
-%p
-  %b Project name:
-  = @document.project_name
-%p
-  %b Document name:
-  = @document.document_name
-%p
-  %b Access link:
-  = @document.access_link
+.index-container
+  %p#notice= notice
+  %h3 Document Information:
+  %p
+    %b Creator:
+    = User.find_by_id(@document.user_id).name
+  %p
+    %b Project name:
+    = @document.project_name
+  %p
+    %b Document name:
+    = @document.document_name
+  %p
+    %b Access link:
+    = @document.access_link
+  %h3 Document Versions:
+  
+  %ul.document-list.clearfix
+    - @documentversions.each do |document_version|
+      %li.document-li
+        %p.document-information
+          Name: 
+          = document_version.name
+        %p.document-information
+          Annotation Count:
+          15
+        %p.document-information
+          Annotation Contributors:
+          JD, EL, RV
+        =# image_tag "Folder.png", class: "folder-pic"
+        = link_to (image_tag "annotate_thumb.png", class: "annotate-thumb-pic"), annotation_path(document_version.id)
+        %br
+        = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
 
-= link_to 'Edit', edit_document_path(@document)
-\|
-= link_to 'Back', user_path(current_user.id)
+  %p
+    -if @documentversions.count == 0
+      = link_to "Add first version of document", new_document_version_url(:document_id => @document.id)
+    -else
+      = link_to "Add new version of document", new_document_version_path(:document_id => @document.id)
+
+  %hr.index-hr
+  = link_to 'Edit Document', edit_document_path(@document)
+  \|
+  = link_to 'Back to Dashbaord', user_path(current_user.id)

@@ -25,6 +25,7 @@ class DocumentVersionsController < ApplicationController
   # GET /document_versions/new.json
   def new
     @document_version = DocumentVersion.new
+    @document_id = params[:document_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class DocumentVersionsController < ApplicationController
   # GET /document_versions/1/edit
   def edit
     @document_version = DocumentVersion.find(params[:id])
+    @document_id = @document_version.document_id
   end
 
   # POST /document_versions
@@ -44,7 +46,7 @@ class DocumentVersionsController < ApplicationController
 
     respond_to do |format|
       if @document_version.save
-        format.html { redirect_to @document_version, notice: 'Document version was successfully created.' }
+        format.html { redirect_to document_path(@document_version.document_id), notice: 'Document version was successfully created.' }
         format.json { render json: @document_version, status: :created, location: @document_version }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class DocumentVersionsController < ApplicationController
 
     respond_to do |format|
       if @document_version.update_attributes(params[:document_version])
-        format.html { redirect_to @document_version, notice: 'Document version was successfully updated.' }
+        format.html { redirect_to document_path(@document_version.document_id), notice: 'Document version was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,8 +78,13 @@ class DocumentVersionsController < ApplicationController
     @document_version.destroy
 
     respond_to do |format|
-      format.html { redirect_to document_versions_url }
+      format.html { redirect_to document_path(@document_version.document_id) }
       format.json { head :no_content }
     end
   end
+
+  def annotate
+
+  end
+  
 end

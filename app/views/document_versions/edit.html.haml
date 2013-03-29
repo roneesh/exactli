@@ -1,7 +1,7 @@
-%h1 Editing document_version
-
-= render 'form'
-
-= link_to 'Show', @document_version
-\|
-= link_to 'Back', document_versions_path
+.form-container.clearfix
+  .form-fields 
+    %h1 Edit Document Version
+    = render 'form'
+    = link_to 'Show', @document_version
+    \|
+    = link_to 'Back', document_versions_path

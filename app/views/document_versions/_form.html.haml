@@ -5,12 +5,10 @@
       %ul
         - @document_version.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :document_id
-    = f.number_field :document_id
-  .field
+  %p
+    = f.hidden_field :document_id, value: @document_id
+  %p
     = f.label :name
     = f.text_field :name
-  .actions
+  %p
     = f.submit 'Save'
