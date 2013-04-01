@@ -11,4 +11,11 @@ class UsersController < ApplicationController
     
   end
 
+  def archive_delete
+    @user = User.find(params[:id])
+    @document_tree = []
+    @documents = Document.where(user_id: @user.id)
+
+  end
+
 end

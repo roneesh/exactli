@@ -1,6 +1,5 @@
-= render 'layouts/in_app_header'
-
 .index-container
+  = render 'layouts/in_app_header'
   %p#notice= notice
   %h3 Document Information:
   %p
@@ -46,3 +45,5 @@
   = link_to 'Edit Document', edit_document_path(@document)
   \|
   = link_to 'Back to Dashbaord', user_path(current_user.id)
+  \|
+  = link_to 'Archive/Delete Documents and Versions', archive_delete_path(current_user.id)

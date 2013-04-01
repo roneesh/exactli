@@ -1,5 +1,5 @@
-= render 'layouts/in_app_header'
 .index-container
+  = render 'layouts/in_app_header'
   %h3 
     Your Document Dashboard,
     =@user.name.split.first
@@ -24,6 +24,4 @@
   %hr.index-hr
   = link_to "New Document", new_document_path
   |
-  = link_to "Archive or Delete Documents"
-  |
-  = link_to "Archive or Delete DocumentVersions"
+  = link_to 'Archive/Delete Documents and Versions', archive_delete_path(current_user.id)

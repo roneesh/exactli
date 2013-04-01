@@ -77,7 +77,7 @@ class DocumentsController < ApplicationController
     @document.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_path(current_user.id) }
+      format.html { redirect_to user_path(current_user.id), notice: "Document #{@document.document_name} was successfully destroyed. RIP." }
       format.json { head :no_content }
     end
   end

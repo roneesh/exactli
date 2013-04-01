@@ -12,4 +12,7 @@ Exactli::Application.routes.draw do
   root :to => "home#splash_page"
   devise_for :users
   resources :users
+
+  get "/users/:id/archive_delete", controller: "Users", action: "archive_delete", as: "archive_delete"
+
 end

@@ -1,0 +1,31 @@
+.index-container
+
+  %h3 
+    Your Document Tree,
+    =@user.name.split.first
+
+  %ul.archive-delete-list
+    -@documents.each do |document_object|
+      %li
+        %p
+          Document Name:
+          = document_object.document_name
+          %br
+          Project Name:
+          = document_object.project_name
+          %br 
+          %br
+          = link_to "Delete", document_path(document_object.id), :method => :delete, :confirm => "Are you sure? Deletion can not be un-done and all versions will be deleted with it"
+          |
+          Archive
+        - document_versions = DocumentVersion.where(document_id: document_object.id)
+        %ul
+          -document_versions.each do |document_version_object|
+            %li
+              %p
+                = document_version_object.name
+                %br
+                = link_to "Delete", document_version_path(document_version_object.id), :method => :delete, :confirm => "Are you sure? Document Version deletion is permanent, all annotations will be lost with it."
+                |
+                Archive
+                %br
