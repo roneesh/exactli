@@ -3,8 +3,9 @@
   .name-and-version-bar
     .anno-document-name
       = @document.document_name
-      |
-      %span.version-name= @document_version.name
+      %span.version-name
+        |
+        = @document_version.name
     .version-drop-down
       View Other Versions:
       = select_tag(:city_id, options_for_select([['Lisbon', 1], ['Madrid', 2]]))
