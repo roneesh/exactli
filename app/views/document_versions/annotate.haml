@@ -19,6 +19,11 @@
     .image-container
       .image
     .comments
+  .tool-bar
+    %h3.export-links
+      %button Export Comments
+      %button Export Markup 
+      %button Export Both
   %hr.index-hr
   .footer-nav
     = link_to 'Back to Document Versions', document_path(@document.id)
