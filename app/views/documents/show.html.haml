@@ -42,8 +42,9 @@
       = link_to "Add new version of document", new_document_version_path(:document_id => @document.id)
 
   %hr.index-hr
-  = link_to 'Edit Document', edit_document_path(@document)
-  \|
-  = link_to 'Back to Dashbaord', user_path(current_user.id)
-  \|
-  = link_to 'Archive/Delete Documents and Versions', archive_delete_path(current_user.id)
+  .footer-nav
+    = link_to 'Edit Document', edit_document_path(@document)
+    \|
+    = link_to 'Back to Dashbaord', user_path(current_user.id)
+    \|
+    = link_to 'Archive/Delete Documents and Versions', archive_delete_path(current_user.id)

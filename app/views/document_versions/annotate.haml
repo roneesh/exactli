@@ -1,4 +1,26 @@
-= render 'layouts/in_app_header'
-
 .index-container
-  
+  = render 'layouts/in_app_header'
+  .name-and-version-bar
+    .anno-document-name
+      = @document.document_name
+      |
+      %span.version-name= @document_version.name
+    .version-drop-down
+      View Other Versions:
+      = select_tag(:city_id, options_for_select([['Lisbon', 1], ['Madrid', 2]]))
+      Go
+  .tool-bar
+    .tools
+      %h3
+        Tools go here!
+    .comments
+      %h3 Comments
+  .image-and-comments
+    .image-container
+      .image
+    .comments
+  %hr.index-hr
+  .footer-nav
+    = link_to 'Back to Document Versions', document_path(@document.id)
+    \|
+    = link_to 'Back to Dashbaord', user_path(current_user.id)
