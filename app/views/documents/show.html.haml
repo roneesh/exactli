@@ -31,7 +31,7 @@
           %br
           JD, EL, RV
         =# image_tag "Folder.png", class: "folder-pic"
-        = link_to (image_tag "annotate_thumb.png", class: "annotate-thumb-pic"), annotation_path(document_version.id)
+        = link_to (image_tag document_version.file_url(:thumb), class: "annotate-thumb-pic"), annotation_path(document_version.id)
         %br
         = link_to (image_tag "Settings.png", class: "settings-pic"), edit_document_version_path(document_version.id)
 

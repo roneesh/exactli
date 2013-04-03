@@ -3,6 +3,7 @@ class DocumentVersion < ActiveRecord::Base
 
   belongs_to :document
 
-  mount_uploader :file
+  mount_uploader :file, FileUploader
+  
 
 end
