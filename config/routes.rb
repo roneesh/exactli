@@ -1,4 +1,8 @@
 Exactli::Application.routes.draw do
+  post "annotation/create"
+
+  get "annotation/destroy"
+
   resources :document_versions
 
   get "/document_versions/:id/annotate", controller: "DocumentVersions", action: "annotate", as: "annotation"

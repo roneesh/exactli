@@ -21,6 +21,7 @@
       .image
         = image_tag @document_version.file
     .comments
+      %ul.comments-list
   .tool-bar
     %h3.export-links
       %button Export Comments
@@ -31,3 +32,9 @@
     = link_to 'Back to Document Versions', document_path(@document.id)
     \|
     = link_to 'Back to Dashbaord', user_path(current_user.id)
+
+
+/ <script type="text/javascript">
+/   var document_version_id = "<%= @document_version_id %>" 
+/   var annotation_count = <%= @annotation_count %>
+/ </script>

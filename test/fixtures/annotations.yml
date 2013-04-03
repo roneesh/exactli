@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  document_version_id: 1
+  content: 
+  user_id: 
+  number: 
+  xcoor: 
+  ycoor: 1
+
+two:
+  document_version_id: 1
+  content: 
+  user_id: 
+  number: 
+  xcoor: 
+  ycoor: 1
