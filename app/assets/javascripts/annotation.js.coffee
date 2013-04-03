@@ -32,22 +32,21 @@ $ ->
     annotation_text = $('#text').val()
     unless annotation_text == ""
       $('.image-comment').remove()
-      alert(annotation_text)
       # Creates the annotation in the db
       console.log($.ajax({
         url: "/annotation/create",
         type: "POST",
-        data: { id : 1, content: annotation_text, number: 1, xcoor: commentleft, ycoor: commenttop }
+        data: { document_version_id : 44, content: annotation_text, number: 1, xcoor: commentleft, ycoor: commenttop }
       }))
     #   # Appends the comments section
-    #   $(".image").append("<div id='#{annotation_count}' class='#{annotation_count} black' style='left: #{commentleft}px; top: #{commenttop}px;'><p>#{annotation_count}</p></div>")
-    #   $('.comments-list').append("<li class='#{annotation_count}'>#{annotation_count}. '#{annotation_text}'<br/><a href='#' id='#{annotation_count}' class='#{annotation_count}'>Reply </a> | <a id='delete' class='#{annotation_count}' href='#'>Delete</a></li>")
-    #   # Does a PUT request on DocumentVersion annotation_count  
-    #   console.log($.ajax({
-    #     url: "/increment_annotation_count/#{document_version_id}"
-    #     type: "PUT"
-    #     data: {annotation_count: annotation_count}
-    #   }))
+      $(".image").append("<div class='black' style='left: #{commentleft}px; top: #{commenttop}px;'><p>A</p></div>")
+      $('.comments-list').append("<li>'#{annotation_text}'<br/><a id='delete' href='#'>Delete</a></li>")
+      # Does a PUT request on DocumentVersion annotation_count  
+      # console.log($.ajax({
+        # url: "/increment_annotation_count/#{document_version_id}"
+        # type: "PUT"
+        # data: {annotation_count: annotation_count}
+      # }))
 
 
 
