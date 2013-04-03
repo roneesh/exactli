@@ -25,7 +25,7 @@
           = truncate(document_version.name, :length => 20)
         %p.document-information
           Annotation Count:
-          15
+          = document_version.annotations.count
         %p.document-information
           Annotation Contributors:
           %br

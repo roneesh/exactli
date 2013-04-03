@@ -63,14 +63,14 @@ $ ->
   #   }))
 
 # Delete's annotation if Delete link clicked
-  # $('.comments').on "click", '#delete', (e) ->
-  #   console.log e
-  #   to_rem_class = $(e.target).attr('class')
-  #   to_rem_objects = ".#{to_rem_class}"
-  #   $("#{to_rem_objects}").remove()
-  #   console.log($.ajax({
-  #     url: "/delete_annotation/#{to_rem_class}",
-  #     type: "DELETE"
-  #     data: {number: to_rem_class}
-  #   }))
+  $('.comments').on "click", '#delete', (e) ->
+    console.log e
+    # to_rem_class = $(e.target).attr('class')
+    # to_rem_objects = ".#{to_rem_class}"
+    # $("#{to_rem_objects}").remove()
+    # console.log($.ajax({
+    #   url: "/delete_annotation/#{to_rem_class}",
+    #   type: "DELETE"
+    #   data: {number: to_rem_class}
+    # }))
 
