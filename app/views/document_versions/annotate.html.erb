@@ -1,5 +1,7 @@
 <div class="index-container">
+  
   <%= render 'layouts/in_app_header' %>
+  
   <div class="name-and-version-bar">
     <div class="anno-document-name">
       <%= @document.document_name%>
@@ -13,14 +15,18 @@
       Go
     </div>
   </div>
+
   <div class="tool-bar">
     <div class="tools">
       <h3> Tools go here! </h3>
+    </div>
     <div class="comments">
       <h3> Comments </h3>
     </div>
   </div>
-  <div class="image-and-comments">
+
+  <div class="image-and-comments">  
+    
     <div class="image-container">
       <div class="image">
         <%= image_tag @document_version.file %>
@@ -31,7 +37,8 @@
         <% end %>
       </div>
     </div>
-    <div id=comments>
+    
+    <div class="comments">
       <ul class="annotation-list">
         <% @annotations.each do |annotation_object| %>
           <li class="<%=annotation_object.number%>" 
@@ -40,11 +47,14 @@
             <br/>
             <a href='#' id="<%=annotation_object.number%>" class= "<%=annotation_object.number%>"> Reply </a>
             | 
-            <a id="delete" class="<%= annotation_object.number %>", href='#'} Delete </a>
+            <a id="delete" class="<%= annotation_object.number %>" href='#'> Delete </a>
           </li>
+        <% end %>
       </ul>
     </div>
+  
   </div>
+
   <div class="tool-bar">
     <h3 class="export-links">
       <button> Export Comments </button>
@@ -52,12 +62,15 @@
       <button> Export Both </button>
     </h3>
   </div>
+
   <hr class="index-hr">
+  
   <div class="footer-nav">
     <%= link_to 'Back to Document Versions', document_path(@document.id) %>
-    \|
+    |
     <%= link_to 'Back to Dashbaord', user_path(current_user.id) %>
   </div>
+
 </div>
 
 <script type="text/javascript">
