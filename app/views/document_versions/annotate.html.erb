@@ -1,0 +1,66 @@
+<div class="index-container">
+  <%= render 'layouts/in_app_header' %>
+  <div class="name-and-version-bar">
+    <div class="anno-document-name">
+      <%= @document.document_name%>
+      <span class="version-name">
+        |
+        <%= @document_version.name%>
+    </div>
+    <div class="version-drop-down">
+      View Other Versions:
+      <%= select_tag(:city_id, options_for_select([['Lisbon', 1], ['Madrid', 2]])) %>
+      Go
+    </div>
+  </div>
+  <div class="tool-bar">
+    <div class="tools">
+      <h3> Tools go here! </h3>
+    <div class="comments">
+      <h3> Comments </h3>
+    </div>
+  </div>
+  <div class="image-and-comments">
+    <div class="image-container">
+      <div class="image">
+        <%= image_tag @document_version.file %>
+        <% @annotations.each do |annotation_object| %>
+          <div class="black" style="left:<%=annotation_object.xcoor%>px; top: <%=annotation_object.ycoor%>px;">
+            <p> <%= annotation_object.number %> </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id=comments>
+      <ul class="annotation-list">
+        <% @annotations.each do |annotation_object| %>
+          <li class="<%=annotation_object.number%>" 
+            <%= annotation_object.number %> 
+            <%= annotation_object.content %>
+            <br/>
+            <a href='#' id="<%=annotation_object.number%>" class= "<%=annotation_object.number%>"> Reply </a>
+            | 
+            <a id="delete" class="<%= annotation_object.number %>", href='#'} Delete </a>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tool-bar">
+    <h3 class="export-links">
+      <button> Export Comments </button>
+      <button> Export Markup </button>
+      <button> Export Both </button>
+    </h3>
+  </div>
+  <hr class="index-hr">
+  <div class="footer-nav">
+    <%= link_to 'Back to Document Versions', document_path(@document.id) %>
+    \|
+    <%= link_to 'Back to Dashbaord', user_path(current_user.id) %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var document_version_id = "<%#= @document_version_id %>" 
+  var annotation_count = "<%#= @annotation_count %>"
+</script>
