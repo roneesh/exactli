@@ -29,7 +29,7 @@
     
     <div class="image-container">
       <div class="image">
-        <%= image_tag @document_version.file %>
+        <%= image_tag document_version.file_url %>
         <% @annotations.each do |annotation_object| %>
           <div class="black <%= annotation_object.number%>" style="left:<%=annotation_object.xcoor%>px; top: <%=annotation_object.ycoor%>px;">
             <p> <%= annotation_object.number %> </p>

@@ -27,5 +27,8 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 #image uploads
 gem 'rmagick'
 gem 'carrierwave'
+
 # gem 'mini_magick'
 
+#excel exporting
+gem "spreadsheet"

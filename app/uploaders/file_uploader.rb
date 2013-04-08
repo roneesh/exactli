@@ -37,9 +37,9 @@ class FileUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [100,100]
   end
 
-  version :pdf do
-    process :convert => 'png'
-  end
+  # version :annotatable do
+  #   process :convert => 'png'
+  # end
 
 
 
