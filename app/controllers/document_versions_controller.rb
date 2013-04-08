@@ -85,9 +85,11 @@ class DocumentVersionsController < ApplicationController
 
   def annotate
     @document_version = DocumentVersion.find_by_id(params[:id])
+    @document_version_id = @document_version.id
     @document = Document.find_by_id(@document_version.document_id)
     @document_versions = DocumentVersion.where(document_id: @document.id)
     @annotations = Annotation.where(document_version_id: params[:id])
+    @annotation_count = @annotations.count
   end
   
 end

@@ -34,8 +34,19 @@ class FileUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [50,50]
+    process :resize_to_fill => [100,100]
   end
+
+  version :pdf do
+    process :convert => 'png'
+  end
+
+
+
+  # Roneesh added, convert pdf to image
+  # version :img_from_pdf |img| do
+  #   if img.type == 'pdf'
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

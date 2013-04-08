@@ -41,8 +41,8 @@
     <div class="comments">
       <ul class="annotation-list">
         <% @annotations.each do |annotation_object| %>
-          <li class="<%=annotation_object.number%>" 
-            <%= annotation_object.number %> 
+          <li class="<%=annotation_object.number%>">
+            <%= annotation_object.number %>.
             <%= annotation_object.content %>
             <br/>
             <a href='#' id="<%=annotation_object.number%>" class= "<%=annotation_object.number%>"> Reply </a>
@@ -74,6 +74,6 @@
 </div>
 
 <script type="text/javascript">
-  var document_version_id = "<%#= @document_version_id %>" 
-  var annotation_count = "<%#= @annotation_count %>"
+  var document_version_id = <%= @document_version_id %> 
+  var annotation_count = <%= @annotation_count %>
 </script>

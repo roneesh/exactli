@@ -10,11 +10,11 @@ $ ->
 
   $(".image").on "click", (e) ->
     console.log e
-    # document_id = document_version_id
+    document_id = document_version_id
     unless $(e.target).hasClass("black") || $(e.target).hasClass("comment-entry") || $(e.target).hasClass("annotate-btn")
       commentleft = e.offsetX
       commenttop = e.offsetY
-      form = "<form style='left: #{e.offsetX}px; top: #{e.offsetY}px;' class='image-comment' action='#'>"
+      form = "<form id='#{annotation_count}' style='left: #{e.offsetX}px; top: #{e.offsetY}px;' class='image-comment' action='#'>"
       text_input = "<input type='text' id='text' class='comment-entry' placeholder='Comment here' style='left: #{commentleft}px; top: #{commenttop}px;'>"
       submit = "<input type='submit' id='submit' class='submit-btn annotate-btn'>"
       cancel = "<button id='cancel' class='annotate-btn cancel-btn'>Cancel</button>"
@@ -31,16 +31,17 @@ $ ->
   $(".image").on "click", "#submit", (e) ->
     annotation_text = $('#text').val()
     unless annotation_text == ""
+      annotation_count += 1
       $('.image-comment').remove()
       # Creates the annotation in the db
       console.log($.ajax({
         url: "/annotation/create",
         type: "POST",
-        data: { document_version_id : 44, content: annotation_text, number: 1, xcoor: commentleft, ycoor: commenttop }
+        data: { id : document_version_id, content: annotation_text, number: annotation_count, xcoor: commentleft, ycoor: commenttop }
       }))
     #   # Appends the comments section
-      $(".image").append("<div class='black' style='left: #{commentleft}px; top: #{commenttop}px;'><p>A</p></div>")
-      $('.comments-list').append("<li>'#{annotation_text}'<br/><a id='delete' href='#'>Delete</a></li>")
+      $(".image").append("<div class='black' style='left: #{commentleft}px; top: #{commenttop}px;'>#{annotation_count}</div>")
+      $('.annotation-list').append("<li>#{annotation_count}. '#{annotation_text}'<br/><a id='delete' href='#'>Delete</a></li>")
       # Does a PUT request on DocumentVersion annotation_count  
       # console.log($.ajax({
         # url: "/increment_annotation_count/#{document_version_id}"
