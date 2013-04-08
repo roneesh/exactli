@@ -1,7 +1,7 @@
 Exactli::Application.routes.draw do
   post "annotation/create"
 
-  get "annotation/destroy"
+  delete "/delete_annotation/:number", {controller: "Annotation", action: "destroy"}
 
   resources :document_versions
 

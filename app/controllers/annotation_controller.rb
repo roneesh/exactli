@@ -5,5 +5,7 @@ class AnnotationController < ApplicationController
   end
 
   def destroy
+    annotation = Annotation.find_by_number(params[:number])
+    annotation.destroy
   end
 end

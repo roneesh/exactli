@@ -40,8 +40,8 @@ $ ->
         data: { id : document_version_id, content: annotation_text, number: annotation_count, xcoor: commentleft, ycoor: commenttop }
       }))
     #   # Appends the comments section
-      $(".image").append("<div class='black' style='left: #{commentleft}px; top: #{commenttop}px;'>#{annotation_count}</div>")
-      $('.annotation-list').append("<li>#{annotation_count}. '#{annotation_text}'<br/><a id='delete' href='#'>Delete</a></li>")
+      $(".image").append("<div id='#{annotation_count}' class='#{annotation_count} black' style='left: #{commentleft}px; top: #{commenttop}px;'><p>#{annotation_count}</p></div>")
+      $('.annotation-list').append("<li class='#{annotation_count}'>#{annotation_count}. '#{annotation_text}'<br/><a id='delete' class='#{annotation_count}' href='#'>Delete</a></li>")
       # Does a PUT request on DocumentVersion annotation_count  
       # console.log($.ajax({
         # url: "/increment_annotation_count/#{document_version_id}"
@@ -66,12 +66,12 @@ $ ->
 # Delete's annotation if Delete link clicked
   $('.comments').on "click", '#delete', (e) ->
     console.log e
-    # to_rem_class = $(e.target).attr('class')
-    # to_rem_objects = ".#{to_rem_class}"
-    # $("#{to_rem_objects}").remove()
-    # console.log($.ajax({
-    #   url: "/delete_annotation/#{to_rem_class}",
-    #   type: "DELETE"
-    #   data: {number: to_rem_class}
-    # }))
+    to_rem_class = $(e.target).attr('class')
+    to_rem_objects = ".#{to_rem_class}"
+    $("#{to_rem_objects}").remove()
+    console.log($.ajax({
+      url: "/delete_annotation/#{to_rem_class}",
+      type: "DELETE"
+      data: {number: to_rem_class}
+    }))
 

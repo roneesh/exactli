@@ -31,7 +31,7 @@
       <div class="image">
         <%= image_tag @document_version.file %>
         <% @annotations.each do |annotation_object| %>
-          <div class="black" style="left:<%=annotation_object.xcoor%>px; top: <%=annotation_object.ycoor%>px;">
+          <div class="black <%= annotation_object.number%>" style="left:<%=annotation_object.xcoor%>px; top: <%=annotation_object.ycoor%>px;">
             <p> <%= annotation_object.number %> </p>
           </div>
         <% end %>
@@ -45,8 +45,6 @@
             <%= annotation_object.number %>.
             <%= annotation_object.content %>
             <br/>
-            <a href='#' id="<%=annotation_object.number%>" class= "<%=annotation_object.number%>"> Reply </a>
-            | 
             <a id="delete" class="<%= annotation_object.number %>" href='#'> Delete </a>
           </li>
         <% end %>
