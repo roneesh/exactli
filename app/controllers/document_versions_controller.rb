@@ -91,5 +91,15 @@ class DocumentVersionsController < ApplicationController
     @annotations = Annotation.where(document_version_id: params[:id])
     @annotation_count = @annotations.count
   end
+
+  def export
+    @document_version = DocumentVersion.find_by_id(params[:id])
+    @annotations = @document_version.annotations
+
+    respond_to do |format|
+      format.xls
+    end
+    
+  end
   
 end

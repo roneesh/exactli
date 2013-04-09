@@ -29,7 +29,7 @@
     
     <div class="image-container">
       <div class="image">
-        <%= image_tag document_version.file_url %>
+        <%= image_tag @document_version.file_url %>
         <% @annotations.each do |annotation_object| %>
           <div class="black <%= annotation_object.number%>" style="left:<%=annotation_object.xcoor%>px; top: <%=annotation_object.ycoor%>px;">
             <p> <%= annotation_object.number %> </p>
@@ -55,7 +55,9 @@
 
   <div class="tool-bar">
     <h3 class="export-links">
-      <button> Export Comments </button>
+      <button> 
+        <%= link_to "Export Comments", export_path(@document_version_id, format: "xls") %>
+      </button>
       <button> Export Markup </button>
       <button> Export Both </button>
     </h3>

@@ -29,6 +29,3 @@ gem 'rmagick'
 gem 'carrierwave'
 
 # gem 'mini_magick'
-
-#excel exporting
-gem "spreadsheet"

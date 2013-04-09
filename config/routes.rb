@@ -7,6 +7,8 @@ Exactli::Application.routes.draw do
 
   get "/document_versions/:id/annotate", controller: "DocumentVersions", action: "annotate", as: "annotation"
 
+  get "/document_versions/:id/export", controller: "DocumentVersions", action: "export", as: "export"
+
   resources :documents
 
 
@@ -18,5 +20,6 @@ Exactli::Application.routes.draw do
   resources :users
 
   get "/users/:id/archive_delete", controller: "Users", action: "archive_delete", as: "archive_delete"
+
 
 end

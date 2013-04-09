@@ -8,4 +8,7 @@ class AnnotationController < ApplicationController
     annotation = Annotation.find_by_number(params[:number])
     annotation.destroy
   end
+
+  
+
 end

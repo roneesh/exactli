@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Annotations">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="Integer">Number</Data></Cell>
+        <Cell><Data ss:Type="String">Content</Data></Cell>
+      </Row>
+    <% @annotations.each do |annotation| %>
+      <Row>
+        <Cell><Data ss:Type="Integer"><%= annotation.number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= annotation.content %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+  <Worksheet ss:Name="Image">
+    <image href="<%= @document_version.file %>"/>
+  </Worksheet>
+
+</Workbook>
