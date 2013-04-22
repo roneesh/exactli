@@ -27,5 +27,7 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 #image uploads
 gem 'rmagick'
 gem 'carrierwave'
+gem 'therubyracer'
+gem 'fog'
 
 # gem 'mini_magick'
