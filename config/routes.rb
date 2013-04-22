@@ -9,12 +9,14 @@ Exactli::Application.routes.draw do
 
   get "/document_versions/:id/export", controller: "DocumentVersions", action: "export", as: "export"
 
+  get "/guest_view/:access_link", controller: "DocumentVersions", action: "access_link", as: "access_link"
+  
   resources :documents
-
 
   authenticated :user do
     root :to => 'home#index'
   end
+  
   root :to => "home#splash_page"
   devise_for :users
   resources :users

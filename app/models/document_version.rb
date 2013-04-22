@@ -1,5 +1,5 @@
 class DocumentVersion < ActiveRecord::Base
-  attr_accessible :document_id, :name, :file
+  attr_accessible :document_id, :name, :file, :access_link
 
   belongs_to :document
 
@@ -7,5 +7,4 @@ class DocumentVersion < ActiveRecord::Base
 
   mount_uploader :file, FileUploader
   
-
 end

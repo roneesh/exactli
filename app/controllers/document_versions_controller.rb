@@ -1,6 +1,9 @@
 class DocumentVersionsController < ApplicationController
   # GET /document_versions
   # GET /document_versions.json
+
+layout "guest", :only => "access_link"
+
   def index
     @document_versions = DocumentVersion.all
 
@@ -99,7 +102,20 @@ class DocumentVersionsController < ApplicationController
     respond_to do |format|
       format.xls
     end
-    
+  end
+
+  def access_link
+    @document_version = DocumentVersion.find_by_access_link(params[:access_link])
+    @document_version_id = @document_version.id
+    @document = Document.find_by_id(@document_version.document_id)
+    @document_versions = DocumentVersion.where(document_id: @document.id)
+    @annotations = Annotation.where(document_version_id: params[:id])
+    @annotation_count = @annotations.count
+
+    respond_to do |format|
+      format.html
+    end
+
   end
   
 end
