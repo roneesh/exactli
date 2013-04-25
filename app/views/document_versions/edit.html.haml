@@ -2,6 +2,4 @@
   .form-fields 
     %h1 Edit Document Version
     = render 'form'
-    = link_to 'Show', @document_version
-    \|
-    = link_to 'Back', document_versions_path
+    = link_to 'Back', document_path(@document_id)
