@@ -1,0 +1,25 @@
+.index-container
+  = render 'layouts/in_app_header'
+  %p#notice= notice
+  %h3 Project Details
+  %ul.project-details-list
+    %li Name: 1580 Wacker Dr Retrofit
+    %li Cx Authority: Roneesh Vashisht
+    %li Access link: wacker_retrofit
+
+  .spacer
+
+  %ul.workflow-nav-list
+    %li.active Building Information
+    %li Generate Site Documents
+    %li Input Site Information
+    %li Generate Cx Documents
+
+
+  %hr.index-hr
+  .footer-nav
+    'Edit Document'
+    \|
+    'Back to Dashbaord'
+    \|
+    'Archive/Delete Documents and Versions'
